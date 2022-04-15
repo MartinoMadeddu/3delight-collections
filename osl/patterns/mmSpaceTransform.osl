@@ -1,0 +1,44 @@
+shader mmSpaceTransform
+(
+    vector in_vector = vector(0.0)
+        [[  string help = "",
+            string label = "In Vector",
+            string widget = "number" ]],
+
+    string interpreter = "position"
+        [[  string help = "",
+            string label = "interpretation",
+            string widget = "mapper",
+            string options = ""
+                "position|vector|normal" ]],
+
+    string in_space = "common"
+        [[  string help = "",
+            string label = "From Space",
+            string widget = "mapper",
+            string options = ""
+                "common|object|shader|world|camera|NDC" ]],
+                
+    string out_space = "common"
+        [[  string help = "",
+            string label = "To Space",
+            string widget = "mapper",
+            string options = ""
+                "common|object|shader|world|camera|NDC" ]],
+
+
+    output vector outVector = vector(0.0)
+
+)
+{
+    if (interpreter == "position"){
+        outVector = transform(in_space, out_space, point(in_vector));
+    }
+    if (interpreter == "vector"){
+        outVector = transform(in_space, out_space, vector(in_vector));
+    }
+    if (interpreter == "normal"){
+        outVector = transform(in_space, out_space, normal(in_vector));
+    }
+
+}

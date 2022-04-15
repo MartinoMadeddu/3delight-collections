@@ -1,0 +1,34 @@
+shader mmShadingGlobals
+(
+    string _init_ = "this reads the main shading globals from the renderer" [[
+        int hidden = 1
+    ]],
+
+    output point _P = point(0.0) [[ int skip_init = 1 ]],
+    output point _Ps = point(0.0) [[ int skip_init = 1 ]],
+    output normal _N = normal(0.0) [[ int skip_init = 1 ]],
+    output normal _Ng = normal(0.0) [[ int skip_init = 1 ]],
+    output vector _I = vector(0.0) [[ int skip_init = 1 ]],
+    output vector _dPdu = vector(0.0) [[ int skip_init = 1 ]],
+    output vector _dPdv = vector(0.0) [[ int skip_init = 1 ]],
+    output vector _dPdtime = vector(0.0) [[ int skip_init = 1 ]],
+    output float _time = float(0.0) [[ int skip_init = 1 ]],
+    output float _dtime = float(0.0) [[ int skip_init = 1 ]],
+    output float _u = float(0.0) [[ int skip_init = 1 ]],
+    output float _v = float(0.0) [[ int skip_init = 1 ]]
+
+)
+{
+    _P = P;
+    _Ps = Ps;
+    _N = N;
+    _Ng = Ng;
+    _I = I;
+    _dPdu = dPdu;
+    _dPdv = dPdv;
+    _dPdtime = dPdtime;
+    _time = time;
+    _dtime = dtime;
+    _u = u;
+    _v = v;
+}

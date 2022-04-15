@@ -1,0 +1,13 @@
+shader mmToNDC
+(
+    point in_pos = point(0.0),
+
+    output point outNDC = point(0.0),
+    output float ndcUV[2] = {0.0, 0.0}
+)
+{
+    outNDC = transform("NDC", in_pos);
+
+    ndcUV[0] = float(outNDC[0]);
+    ndcUV[1] = float(outNDC[1]);
+}

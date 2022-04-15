@@ -1,0 +1,43 @@
+shader mmCameraProjection
+(
+    string in_camera = "/obj/cam1" 
+        [[ string label = "Projection Camera",
+        string widget = "navigation" ]],
+
+    output point outNDC = point(0.0),
+    output float ndcUV[2] = {0.0, 0.0}
+
+)
+{
+
+    string in_cam_name;
+    in_cam_name = concat(in_camera, "|camera");
+
+    string cam_screen;
+    cam_screen = concat(in_cam_name, "|screen");
+
+    float fov;
+    getattribute(in_cam_name, "camera:fov", fov);
+
+    point Pcam = transform(in_cam_name, P);
+
+    float tf = tan(fov * 0.5);
+    float sx = Pcam[0] / (-Pcam[2] * tf);
+    float sy = Pcam[1] / (-Pcam[2] * tf);
+
+    float sw[4];
+    vector ndc;
+
+    getattribute(cam_screen, "camera:screen_window", sw);
+
+    ndc[0] = (sx - sw[0]) / (sw[2] - sw[0]);
+    ndc[1] = 1-((sy - sw[1]) / (sw[3] - sw[1]));
+    ndc[2] = 0;
+
+    outNDC = point(ndc);
+
+    ndcUV[0] = float(ndc[0]);
+    ndcUV[1] = float(ndc[1]);
+    /**uvw[2] = float(ndc[2]);**/
+    
+}
