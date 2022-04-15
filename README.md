@@ -13,4 +13,4 @@ An initial small collection of OSL patterns and eventually materials and lobes f
     - *given a type point, normal or vector input this is just a more comprehensive space transform (from_space :: to_space) node matching Mantra's style interface*
 
 - **mmToNDC:**
-    - *quick and light transform of a given P to NDC coordinates, passing global P to it give you access to render camera projection space so you can plug this as uv of your texture and project your shot plate to proxy tracking geo for example - this also works in IPR as it doesn't rely on camera_name*
+    - *quick and light transform of a given P to NDC coordinates, passing global P to it gives you access to render camera projection space so you can plug this as uv of your texture and project your shot plate to proxy tracking geo for example - this also works in IPR as it doesn't rely on camera_name*
