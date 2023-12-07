@@ -1,0 +1,52 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.11.3
+# options: 
+shader mmShadingGlobals
+param	string	_init_	"this reads the main shading globals from the renderer"		%meta{int,hidden,1}  %read{2147483647,-1} %write{2147483647,-1}
+oparam	point	_P	0 0 0		%meta{int,skip_init,1}  %read{2147483647,-1} %write{4,4}
+oparam	point	_Ps	0 0 0		%meta{int,skip_init,1}  %read{2147483647,-1} %write{5,5}
+oparam	normal	_N	0 0 0		%meta{int,skip_init,1}  %read{2147483647,-1} %write{6,6}
+oparam	normal	_Ng	0 0 0		%meta{int,skip_init,1}  %read{2147483647,-1} %write{7,7}
+oparam	vector	_I	0 0 0		%meta{int,skip_init,1}  %read{2147483647,-1} %write{8,8}
+oparam	vector	_dPdu	0 0 0		%meta{int,skip_init,1}  %read{2147483647,-1} %write{9,9}
+oparam	vector	_dPdv	0 0 0		%meta{int,skip_init,1}  %read{2147483647,-1} %write{10,10}
+oparam	vector	_dPdtime	0 0 0		%meta{int,skip_init,1}  %read{2147483647,-1} %write{11,11}
+oparam	float	_time	0		%meta{int,skip_init,1}  %read{2147483647,-1} %write{0,12} %initexpr
+oparam	float	_dtime	0		%meta{int,skip_init,1}  %read{2147483647,-1} %write{1,13} %initexpr
+oparam	float	_u	0		%meta{int,skip_init,1}  %read{2147483647,-1} %write{2,14} %initexpr
+oparam	float	_v	0		%meta{int,skip_init,1}  %read{2147483647,-1} %write{3,15} %initexpr
+global	point	P	%read{4,4} %write{2147483647,-1}
+global	vector	I	%read{8,8} %write{2147483647,-1}
+global	normal	N	%read{6,6} %write{2147483647,-1}
+global	normal	Ng	%read{7,7} %write{2147483647,-1}
+global	float	u	%read{14,14} %write{2147483647,-1}
+global	float	v	%read{15,15} %write{2147483647,-1}
+global	vector	dPdu	%read{9,9} %write{2147483647,-1}
+global	vector	dPdv	%read{10,10} %write{2147483647,-1}
+global	point	Ps	%read{5,5} %write{2147483647,-1}
+global	float	time	%read{12,12} %write{2147483647,-1}
+global	float	dtime	%read{13,13} %write{2147483647,-1}
+global	vector	dPdtime	%read{11,11} %write{2147483647,-1}
+const	float	$const1	0		%read{0,3} %write{2147483647,-1}
+code _time
+	assign		_time $const1 	%filename{"mmShadingGlobals.osl"} %line{15} %argrw{"wr"}
+code _dtime
+	assign		_dtime $const1 	%filename{"mmShadingGlobals.osl"} %line{16} %argrw{"wr"}
+code _u
+	assign		_u $const1 	%filename{"mmShadingGlobals.osl"} %line{17} %argrw{"wr"}
+code _v
+	assign		_v $const1 	%filename{"mmShadingGlobals.osl"} %line{18} %argrw{"wr"}
+code ___main___
+	assign		_P P 	%filename{"mmShadingGlobals.osl"} %line{22} %argrw{"wr"}
+	assign		_Ps Ps 	%line{23} %argrw{"wr"}
+	assign		_N N 	%line{24} %argrw{"wr"}
+	assign		_Ng Ng 	%line{25} %argrw{"wr"}
+	assign		_I I 	%line{26} %argrw{"wr"}
+	assign		_dPdu dPdu 	%line{27} %argrw{"wr"}
+	assign		_dPdv dPdv 	%line{28} %argrw{"wr"}
+	assign		_dPdtime dPdtime 	%line{29} %argrw{"wr"}
+	assign		_time time 	%line{30} %argrw{"wr"}
+	assign		_dtime dtime 	%line{31} %argrw{"wr"}
+	assign		_u u 	%line{32} %argrw{"wr"}
+	assign		_v v 	%line{33} %argrw{"wr"}
+	end

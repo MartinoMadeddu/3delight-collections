@@ -1,0 +1,22 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.11.3
+# options: 
+shader mmToNDC
+param	point	in_pos	0 0 0		%read{1,1} %write{2147483647,-1}
+oparam	point	outNDC	0 0 0		%read{2,4} %write{1,1}
+oparam	float[2]	ndcUV	0 0		%read{2147483647,-1} %write{3,5}
+const	string	$const1	"NDC"		%read{1,1} %write{2147483647,-1}
+const	string	$const2	"transform"		%read{0,0} %write{2147483647,-1}
+const	string	$const3	"common"		%read{1,1} %write{2147483647,-1}
+temp	float	$tmp1	%read{3,3} %write{2,2}
+const	int	$const4	0		%read{2,3} %write{2147483647,-1}
+temp	float	$tmp2	%read{5,5} %write{4,4}
+const	int	$const5	1		%read{4,5} %write{2147483647,-1}
+code ___main___
+	functioncall	$const2 2 	%filename{"mmToNDC.osl"} %line{9} %argrw{"r"}
+	transform	outNDC $const3 $const1 in_pos 	%filename{"/Applications/3Delight/osl/stdosl.h"} %line{285} %argrw{"wrrr"}
+	compref		$tmp1 outNDC $const4 	%filename{"mmToNDC.osl"} %line{11} %argrw{"wrr"}
+	aassign		ndcUV $const4 $tmp1 	%argrw{"wrr"}
+	compref		$tmp2 outNDC $const5 	%line{12} %argrw{"wrr"}
+	aassign		ndcUV $const5 $tmp2 	%argrw{"wrr"}
+	end
