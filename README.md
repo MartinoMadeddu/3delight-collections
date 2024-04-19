@@ -1,5 +1,5 @@
 # 3delight-collections
-An initial small collection of OSL patterns and eventually materials and lobes for 3delight
+An initial small collection of OSL shaders and eventually materials and lobes for 3delight
 
 # Patterns
 
